@@ -1,111 +1,64 @@
 public class Main {
     public static void main(String[] args) {
-        // Lista simple
-        ListaSimple<Integer> lista = new ListaSimple<>();
-        System.out.println("~~~~~ Lista simple ~~~~~");
-        System.out.println("Insertando al inicio:");
-        lista.insertarInicio(10);
-        lista.insertarInicio(20);
-        lista.insertarInicio(30);
-        System.out.println("Lista actual: " + lista.recorrerLista());
+//        ListaSimple<Integer> x = new ListaSimple<>();
+//
+//        x.insertarFin(1);
+//        x.insertarFin(2);
+//        x.insertarFin(3);
+//        x.insertarFin(4);
+//        x.insertarFin(50);
+//        x.insertarFin(60);
+//
+//        System.out.println(x.recorrerLista());
+//
+//        System.out.println(x.mostrarListaRecursivo());
+//        x.eliminarX(1);
+//        System.out.println("Esta en la posicion:" + x.buscar(50));
+//        x.eliminaPosicion(4);
+//        x.ordenarLista();
+//        x.insertaEnPosicion(3, 3);
+//
+//        System.out.println(x.recorrerLista());
 
-        System.out.println("\nInsertando al final:");
-        lista.insertarFin(40);
-        lista.insertarFin(50);
-        System.out.println("Lista actual: " + lista.recorrerLista());
 
-        System.out.println("\nEliminando el primer elemento:");
-        lista.eliminarInicio();
-        System.out.println("Lista actual: " + lista.recorrerLista());
 
-        System.out.println("\nEliminando el último elemento:");
-        lista.eliminarFin();
-        System.out.println("Lista actual: " + lista.recorrerLista());
+//        ListaDoble<Integer> x2 = new ListaDoble<>();
+//        x2.insertarFinal(1);
+//        x2.insertarFinal(2);
+//        x2.insertarFinal(3);
+//        x2.insertarFinal(4);
+//        x2.insertarFinal(50);
+//        x2.insertarFinal(6);
 
-        System.out.println("\nEliminando todos los elementos:");
-        lista.eliminarInicio();
-        lista.eliminarInicio();
-        lista.eliminarInicio();
-        lista.eliminarInicio();
-        System.out.println("Lista actual: " + lista.recorrerLista());
+//        x2.recorrer();
+//        System.out.println("");
+//
+//        x2.eliminaX(6);
+//        System.out.println("Esta en la posicion:" + x2.buscar(1));
+//        x2.eliminaPosicion(4);
+//        x2.ordenarLista();
+//        x2.insertaEnPosicion(0,0);
+//        System.out.println(x2.mostrarListaRecursivo());
+//
+//        x2.recorrer();
 
-        // Lista doble
-        ListaDoble<Integer> lista2 = new ListaDoble<>();
-        System.out.println("\n~~~~~ Lista doble ~~~~~");
-        System.out.println("Insertando al inicio:");
-        lista2.insertarInicio(10);
-        lista2.insertarInicio(20);
-        lista2.insertarInicio(30);
-        lista2.recorrer();
 
-        System.out.println("\nInsertando al final:");
-        lista2.insertarFinal(40);
-        lista2.insertarFinal(50);
-        lista2.recorrer();
+        ListaCircular<Integer> x3 = new ListaCircular<>();
+        x3.insertarFin(1);
+        x3.insertarFin(2);
+        x3.insertarFin(3);
+        x3.insertarFin(4);
+        x3.insertarFin(50);
+        x3.insertarFin(6);
 
-        System.out.println("\nEliminando el primer elemento: " + lista2.eliminarInicio());
-        lista2.recorrer();
+        System.out.println(x3.mostrarListaRecursivo());
 
-        System.out.println("\nEliminando el último elemento: " + lista2.eliminarFinal());
-        lista2.recorrer();
+        //x3.eliminarX(1);
+        //System.out.println("Esta en la posicion:" + x3.buscar(6));
+        //x3.eliminaPosicion(2);
+        //x3.ordenarLista();
+        //x3.insertaEnPosicion(0,0);
 
-        System.out.println("\nEliminando todos los elementos:");
-        lista2.eliminarInicio();
-        lista2.eliminarInicio();
-        lista2.eliminarInicio();
-        lista2.recorrer();
-
-        // Lista circular
-        ListaCircular<Integer> lista3 = new ListaCircular<>();
-        System.out.println("\n~~~~~ Lista Circular ~~~~~");
-        System.out.println("Insertando al inicio:");
-        lista3.insertarInicio(10);
-        lista3.insertarInicio(20);
-        lista3.insertarInicio(30);
-        System.out.println(lista3.recorrerLista());
-
-        System.out.println("\nInsertando al final:");
-        lista3.insertarFin(40);
-        lista3.insertarFin(50);
-        System.out.println(lista3.recorrerLista());
-
-        System.out.println("\nEliminando el primer elemento: " + lista3.eliminarInicio());
-        System.out.println(lista3.recorrerLista());
-
-        System.out.println("\nEliminando el último elemento: " + lista3.eliminarFin());
-        System.out.println(lista3.recorrerLista());
-
-        System.out.println("\nEliminando todos los elementos:");
-        lista3.eliminarInicio();
-        lista3.eliminarInicio();
-        lista3.eliminarInicio();
-        System.out.println(lista3.recorrerLista());
-
-        ListaCircularDoble<Integer> lista4 = new ListaCircularDoble<>();
-
-        System.out.println("~~~~~ Lista Circular Doble ~~~~~");
-        System.out.println("Insertando al inicio:");
-        lista4.insertarInicio(10);
-        lista4.insertarInicio(20);
-        lista4.insertarInicio(30);
-        lista4.imprimirLista();
-
-        System.out.println("\nInsertando al final:");
-        lista4.insertarFin(40);
-        lista4.insertarFin(50);
-        lista4.imprimirLista();
-
-        System.out.println("\nEliminando del inicio: " + lista4.eliminarInicio());
-        lista4.imprimirLista();
-
-        System.out.println("\nEliminando del final: " + lista4.elimnarFin());
-        lista4.imprimirLista();
-
-        System.out.println("\nEliminando todos los elementos...");
-        lista4.eliminarInicio();
-        lista4.eliminarInicio();
-        lista4.eliminarInicio();
-        lista4.eliminarInicio();
-        lista4.imprimirLista();
+        System.out.println(x3.recorrerLista());
     }
 }

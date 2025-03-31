@@ -39,6 +39,6 @@ public class NodoDoble <T>{
 
     @Override
     public String toString(){
-        return "Info:" + info;
+        return info + " ";
     }
 }

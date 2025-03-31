@@ -77,9 +77,175 @@ public class ListaDoble <T>{
         } else{
             NodoDoble<T> r = inicio;
             while(r != null){
-                System.out.println(r.toString());
+                System.out.print(r.toString());
                 r = r.getSig();
             }
         }
     }
+
+    //Ejercicios examen
+    private String mostrarRecursivo(NodoDoble<T> x){
+        if(x == null){
+            return "";
+        }
+        return x.getInfo() + " " + mostrarRecursivo(x.getSig());
+    }
+
+    public String mostrarListaRecursivo(){
+        return mostrarRecursivo(inicio);
+    }
+
+    public T eliminaX(T x){
+        if(inicio == null){
+            System.out.println("Lista vacia");
+            return null;
+        }
+
+        if(inicio.getInfo().equals(x)){
+            T dato = inicio.getInfo();
+            inicio = inicio.getSig();
+            if(inicio != null){
+                inicio.setAnt(null);
+            }
+            return dato;
+        }
+
+        NodoDoble<T> actual = inicio.getSig();
+        while(actual != null){
+            if(actual.getInfo().equals(x)){
+                T dato = actual.getInfo();
+                if(actual.getSig() != null){
+                    actual.getSig().setAnt(actual.getAnt());
+                }
+                if(actual.getAnt() != null){
+                    actual.getAnt().setSig(actual.getSig());
+                }
+                return dato;
+            }
+            actual = actual.getSig();
+        }
+
+        return null;
+    }
+
+    public int buscar(T x){
+        int posicion = 0;
+
+        if(inicio.getInfo().equals(x)){
+            return posicion;
+        }
+
+        NodoDoble<T> actual = inicio;
+        while(actual != null){
+            if(actual.getInfo().equals(x)){
+                return posicion;
+            }
+            actual = actual.getSig();
+            posicion++;
+        }
+        return -1;
+    }
+
+    public T eliminaPosicion(int posicion){
+        int index = 1;
+        if(inicio == null || posicion < 0){
+            return null;
+        }
+
+        if(posicion == 0){
+            T dato = inicio.getInfo();
+            inicio = inicio.getSig();
+            if(inicio != null) {
+                inicio.setAnt(null);
+            }
+            return dato;
+        }
+
+        NodoDoble<T> actual = inicio.getSig();
+        while(actual != null){
+            if(index == posicion){
+                T dato = actual.getInfo();
+                if(actual.getSig() != null){
+                    actual.getSig().setAnt(actual.getAnt());
+                }
+                if(actual.getAnt() != null){
+                    actual.getAnt().setSig(actual.getSig());
+                }
+                return dato;
+            }
+            actual = actual.getSig();
+            index++;
+        }
+        return null;
+    }
+
+    public void ordenarLista(){
+        if(inicio == null || inicio.getSig() == null){
+            return;
+        }
+
+        boolean intercambio;
+        do{
+           intercambio = false;
+           NodoDoble<T> actual = inicio;
+
+           while(actual.getSig() != null){
+               NodoDoble<T> siguiente = actual.getSig();
+
+               if(((Comparable<T>) actual.getInfo()).compareTo(siguiente.getInfo()) > 0){
+                   if(actual.getAnt() != null){
+                       actual.getAnt().setSig(siguiente);
+                   } else{
+                       inicio = siguiente;
+                   }
+
+                   if(siguiente.getSig() != null){
+                       siguiente.getSig().setAnt(actual);
+                   }
+
+                   actual.setSig(siguiente.getSig());
+                   siguiente.setAnt(actual.getAnt());
+                   siguiente.setSig(actual);
+                   actual.setAnt(siguiente);
+
+                   intercambio = true;
+               } else{
+                   actual = actual.getSig();
+               }
+           }
+        }while(intercambio);
+    }
+
+    public void insertaEnPosicion(T dato, int posicion) {
+        NodoDoble<T> n = new NodoDoble<>();
+
+        if (posicion == 0) {
+            n.setInfo(dato);
+            n.setSig(inicio);
+            if (inicio != null) {
+                inicio.setAnt(n);
+            }
+            inicio = n;
+            return;
+        }
+
+        NodoDoble<T> actual = inicio;
+        int index = 1;
+        while (actual != null && index < posicion - 1) {
+            actual = actual.getSig();
+            index++;
+        }
+        if (actual == null) {
+            System.out.println("Fuera de rango");
+            return;
+        }
+
+        n.setSig(actual.getSig());
+        n.setAnt(actual);
+        if(actual.getSig() != null){
+            actual.getSig().setAnt(n);
+        }
+        actual.setSig(n);
+    }
+
 }

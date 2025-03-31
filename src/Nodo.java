@@ -22,7 +22,7 @@ public class Nodo <T>{
     }
 
     public T getInfo(){
-        return info;
+        return this.info;
     }
 
     public void setSig(Nodo sig) {
